@@ -1,44 +1,32 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<H1> Testing HyperVerge on https </H1>
-
-<button onclick=abc()> test </button>
-    
-
-<script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.2.0/src/sdk.min.js"></script>
-<script>
-    
-    function abc(){
-
-        var accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTg4OTM1LCJleHAiOjE2NjQxODkwMjEsImp0aSI6ImYxMTMyMWMwLTg1M2ItNDNmNy04NWJmLWI4NjFkYjU4Njc4YyJ9.PliE8QyCLwLSsrHE5rpwb30v9bM5k6s-mBy86amdGwoJoWiwjYIqDkZ8oX52Lg1Q8NmP5XjoJFMqROEk5-4GFPuJKgIK3OXockDFYLKLgU0ZH6-_qd9AJnst-9TjAkGxAWafesn4aF9ZmtrcsidmUBE_DbTtkhsx0qrTVlqKhq0";
-
-        const hyperKycConfig = new window.HyperKycConfig(accessToken, "workflow_u26qvgl", "AkshayGSLabHVTest123");
-        const handler = (HyperKycResult) => {
-        switch(HyperKycResult.status) {
-              case "user_cancelled":
-                  alert("user cancelled");
-              break;
-              case "error":
-                alert("ERROR");
-              break;
-              case "auto_approved":
-              case "auto_declined":
-              case "needs_review":
-                alert("Workflow completed");
-              break;
-                }
-        }
-
-
-        window.HyperKYCModule.launch(hyperKycConfig, handler);
-
+  <head>
+    <script src="https://hv-camera-web-sg.s3.ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.1.6/src/sdk.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <button type="“button”" onclick="starOnboarding()">
+        Start Onboarding
+      </button>
+    </div>
+  </body>
+  <script>
+    function starOnboarding() {
+      var accessToken =
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTg4OTY3LCJleHAiOjE2NjQyNzUzNjcsImp0aSI6IjNkYjIxNmQ4LTMyZDQtNGEwYy1hNmE3LTFkYmVjMWIxMGZjNyJ9.Gp3h2lLJlIWGBKRN83xuhoUNlbl6Hqy11JX-H4jcDGZMq8cQ9vJDZwdOLdRfQqxbS6XgHHuAAAB1Y4kveduF-mlXwnwS6OewnHiBp9pefGhO6mlQFSUXXMusppcP_LZBC-FIgW9HkBMenoKRpVfBl0I94OZDh9Pp64NuhsAH57I";
+      const hyperKycConfig = new window.HyperKycConfig(
+        accessToken,
+        "workflow_u26qvgl",
+        "AkshayTEstingHVFromGSLab"
+      );
+      // hyperKycConfig.setInputs({
+      //   ifsc: "BARB0DBNAND",
+      //   accountNumber: "78860100025770",
+      // });
+      const handler = (HyperKycResult) => {
+        console.log(HyperKycResult);
+      };
+      HyperKYCModule.launch(hyperKycConfig, handler);
     }
-</script>
-
-</body>
+  </script>
 </html>
