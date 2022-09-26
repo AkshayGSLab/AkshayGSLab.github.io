@@ -13,7 +13,7 @@
 <script>
 
     var accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTc1NTYyLCJleHAiOjE2NjQxNzU1NjIsImp0aSI6ImQ3Y2Y2MDJlLTk3MjUtNDgyNC1hYjQwLWQ3Nzg1MzFjMTViYyJ9.BXoh77ZPScjg41-VMoInmEz_TW9xzJ8-fxKkXOBies9brCinlwtVhJg7mf2kbTKdGpBCIgnkEnqcUl_3AUBfxIndHyNFWYBTfp4OyOF31v5P94sTHurZo4ymqc78eLjzW5Oj4bPM0Ir1OSEpfrohwBFalRxWvL0IW_vEDKYgEJc";
-    alert("TEST");
+ 
     const hyperKycConfig = new window.HyperKycConfig(accessToken, "workflow_u26qvgl", "1234");
     const handler = (HyperKycResult) => {
     switch(HyperKycResult.status) {
