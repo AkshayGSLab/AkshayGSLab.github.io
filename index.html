@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.2.0/src/sdk.min.js"></script>
+<script>
+
+    var accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTcyNjY0LCJleHAiOjE2NjQxNzI2NjQsImp0aSI6ImZmNmY4MGQzLTNjMGUtNDgxZC1hNjc2LWZhZmViNTllZWVmMiJ9.dCwZuXqMeNCu0jpd0dy83K_zn2-1RXUSu6O830-DVt0mofgIBv-rQUENjFL_zDcNQX8BRcId1Q_RBu0yncBm0AbufPjg35CaytmRzl1oAtkcEezah5SlU0G4xGE83uZL4KtoGMsAUmi-eule4hCoTcxvrHNWrF9rbGMQSErplFY", "1234");
+    const handler = (HyperKycResult) => {
+    switch(HyperKycResult.status) {
+          case "user_cancelled":
+              alert("user cancelled");
+          break;
+          case "error":
+            alert("ERROR");
+          break;
+          case "auto_approved":
+          case "auto_declined":
+          case "needs_review":
+            alert("Workflow completed");
+          break;
+            }
+    }
+    window.HyperKYCModule.launch(hyperKycConfig, handler);
+
+
+</script>
+
+</body>
+</html>
