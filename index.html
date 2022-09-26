@@ -7,32 +7,37 @@
 <body>
 <H1> Testing HyperVerge on https </H1>
 
-
+<button onclick=abc()>
+    
 
 <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.2.0/src/sdk.min.js"></script>
 <script>
+    
+    function abc(){
 
-    var accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTg4OTM1LCJleHAiOjE2NjQxODkwMjEsImp0aSI6ImYxMTMyMWMwLTg1M2ItNDNmNy04NWJmLWI4NjFkYjU4Njc4YyJ9.PliE8QyCLwLSsrHE5rpwb30v9bM5k6s-mBy86amdGwoJoWiwjYIqDkZ8oX52Lg1Q8NmP5XjoJFMqROEk5-4GFPuJKgIK3OXockDFYLKLgU0ZH6-_qd9AJnst-9TjAkGxAWafesn4aF9ZmtrcsidmUBE_DbTtkhsx0qrTVlqKhq0";
- 
-    const hyperKycConfig = new window.HyperKycConfig(accessToken, "workflow_u26qvgl", "AkshayGSLabHVTest123");
-    const handler = (HyperKycResult) => {
-    switch(HyperKycResult.status) {
-          case "user_cancelled":
-              alert("user cancelled");
-          break;
-          case "error":
-            alert("ERROR");
-          break;
-          case "auto_approved":
-          case "auto_declined":
-          case "needs_review":
-            alert("Workflow completed");
-          break;
-            }
+        var accessToken = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImEzdnFzOCIsImhhc2giOiIzMWNjMmUzY2I4ODdlZDgzODIwZTA2ZmVlYjk5MDEwZjMxNDJmNTI4NzJjMTZiNGI3MmI1NzZmMGYwOGI3YmMxIiwiaWF0IjoxNjY0MTg4OTM1LCJleHAiOjE2NjQxODkwMjEsImp0aSI6ImYxMTMyMWMwLTg1M2ItNDNmNy04NWJmLWI4NjFkYjU4Njc4YyJ9.PliE8QyCLwLSsrHE5rpwb30v9bM5k6s-mBy86amdGwoJoWiwjYIqDkZ8oX52Lg1Q8NmP5XjoJFMqROEk5-4GFPuJKgIK3OXockDFYLKLgU0ZH6-_qd9AJnst-9TjAkGxAWafesn4aF9ZmtrcsidmUBE_DbTtkhsx0qrTVlqKhq0";
+
+        const hyperKycConfig = new window.HyperKycConfig(accessToken, "workflow_u26qvgl", "AkshayGSLabHVTest123");
+        const handler = (HyperKycResult) => {
+        switch(HyperKycResult.status) {
+              case "user_cancelled":
+                  alert("user cancelled");
+              break;
+              case "error":
+                alert("ERROR");
+              break;
+              case "auto_approved":
+              case "auto_declined":
+              case "needs_review":
+                alert("Workflow completed");
+              break;
+                }
+        }
+
+
+        window.HyperKYCModule.launch(hyperKycConfig, handler);
+
     }
-    window.HyperKYCModule.launch(hyperKycConfig, handler);
-
-
 </script>
 
 </body>
